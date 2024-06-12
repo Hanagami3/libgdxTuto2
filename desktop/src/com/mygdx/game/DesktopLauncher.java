@@ -11,9 +11,11 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
+		config.setWindowedMode(1080, 720);
 		config.setTitle("Game");
-		new Lwjgl3Application(new Game(), config);
+		//new Lwjgl3Application(new Game(), config);
 		//new Lwjgl3Application(new Orthographic(), config);
 		//new Lwjgl3Application(new Perspective(), config);
+		new Lwjgl3Application(new Cube(), config);
 	}
 }

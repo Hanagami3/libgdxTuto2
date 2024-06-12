@@ -1,0 +1,13 @@
+game_atlas.png
+size:32,32
+repeat:none
+Sprite-0001-export
+bounds:2,2,10,9
+Sprite-0001
+bounds:2,2,10,9
+Sprite-0002
+bounds:14,3,8,8
+Sprite-0003
+bounds:20,14,8,16
+Sprite-0004
+bounds:2,13,16,17

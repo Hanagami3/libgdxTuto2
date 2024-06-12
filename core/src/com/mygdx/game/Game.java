@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.ScreenUtils;
 import org.w3c.dom.Text;
 
@@ -15,12 +16,17 @@ public class Game extends ApplicationAdapter {
 	public Texture sandTexture;
 	public SpriteBatch spriteBatch;
 	public Sprite textureSprite;
+	private TextureAtlas atlas;
 
 	@Override
 	public void create() {
+		atlas = new TextureAtlas(Utils.getInternalPath("game_atlas.atlas"));
+
 		spriteBatch = new SpriteBatch();
 		sandTexture = new Texture(Utils.getExternalPath("sand.png"));
-		textureSprite = new Sprite(sandTexture);
+		//textureSprite = new Sprite(atlas.findRegion("Sprite-0002"));
+		textureSprite = atlas.createSprite("Sprite-0003");
+		//textureSprite = new Sprite(sandTexture);
 		textureSprite.setSize(5, 5);
 		textureSprite.setBounds(0,0,200, 200);
 	}
@@ -32,14 +38,15 @@ public class Game extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		spriteBatch.begin();
-		spriteBatch.draw(sandTexture, 0, 0, 200, 200);
+		//spriteBatch.draw(sandTexture, 0, 0, 200, 200);
 		textureSprite.draw(spriteBatch);
 		spriteBatch.end();
 	}
 
 	@Override
 	public void dispose() {
-		sandTexture.dispose();
+		//atlas.dispose();
+		//sandTexture.dispose();
 		spriteBatch.dispose();
 	}
 
